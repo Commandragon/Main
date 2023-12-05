@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notification Reminder</title>
+  <script>
+    function requestNotificationPermission() {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          scheduleNotification();
+        }
+      });
+    }
+
+    function getSequentialNotification(index) {
+      var notifications = [
+        { title: "<b>A Nigerian Prince wants to make you rich</b>", body: "Hey, guess what? Your favorite Nigerian Prince just kicked the bucket, but he left behind a chest of solid gold bars with your name on it! All you need to do is send your personal details and a small fee for the delivery.", image: "gold.jpg" },
+        { title: "<b>Exclusive Offer: Buy One, Get Two Yachts FREE!</b>", body: "Yacht Extravaganza! Buy One, Snag Two Yachts for Free! Limited-Time Offer, Because Who Needs Just One Yacht? Dive into Luxury Now!", image: "yachtt.jpg" },
+        { title: "<b>Secret Government Grants: Claim Your Private Island Fund Now!</b>", body: "Covert Island Dreams Unveiled! Secure Your Private Paradise with a Government Grant! Act Swiftly Before the Secret Gets Out—Your Tropical Haven Awaits!", image: "PI.jpg" },
+        { title: "<b>Unlock the Secrets of Time Travel for Only $99.99! Act Fast, Before the Time Police Find Out!</b>", body: "Time-Travel Extravaganza! Grab Your Chrono-Access Pass for $99.99! Act Now, Before the Time Police Spoil the Fun! Time-Bending Adventures Await!", image: "TT.jpg" },
+        { title: "<b>Youre Nigerian Prince unckle wants to give you what</b>", body: "Furry Royalty Gift Alert! Your Nigerian Prince Uncle Wants to Send You a Majestic Fur Suit! Simply Share Your Size and Pay the Custom Tailoring Fee for This One-of-a-Kind Royal Attire!", image: "FS.jpg" }
+      ];
+      return notifications[index];
+    }
+
+    function scheduleNotification() {
+      window.addEventListener("beforeunload", function () {
+        var notification = new Notification(getSequentialNotification(0).title, {
+          body: getSequentialNotification(0).body,
+          icon: getSequentialNotification(0).image,
+          sound: "path/to/custom-sound.mp3", // Replace with the path to your custom sound
+        });
+      });
+
+      var index = 0;
+      setInterval(function () {
+        var notification = new Notification(getSequentialNotification(index).title, {
+          body: getSequentialNotification(index).body,
+          icon: getSequentialNotification(index).image,
+          sound: "path/to/custom-sound.mp3", // Replace with the path to your custom sound
+        });
+
+        index = (index + 1) % 5; // Loop through the notifications
+      }, 10 * 60 * 1000); // 30 minutes in milliseconds
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (Notification.permission !== "granted") {
+        requestNotificationPermission();
+      } else {
+        scheduleNotification();
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Notification Reminder</h1>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  new Crate({
+    server: '1171630839075975280',
+    channel: '1171630839797387337'
+  })
+</script>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buypass POC</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+  </head>
+
+  <body>
+    <input value="https://coolmathgames.com" />
+    <button>
+      <span style="font-size: 80px">The Buypass</span><br />
+      <span style="font-size: 20px">By Bypassi</span>
+    </button>
+    <p>Click the button! This will only bypass certain Chrome extensions.</p>
+    <p>
+      You can read more about this exploit on
+      <a href="https://github.com/bypassiwastaken/buypass">its GitHub page</a>.
+    </p>
+  </body>
+</html>
+<script>
+  function buypass() {
+      new PaymentRequest(
+          [
+              {
+                  supportedMethods: location.origin + "/pay/main.json",
+                  data: { url: document.querySelector("input").value },
+              },
+          ],
+          {
+              total: {
+                  label: "_",
+                  amount: { value: "1", currency: "USD" },
+              },
+          }
+      ).show();
+  }
+
+  document.querySelector("button").onclick = buypass;
+</script>
+
+<style>
+  :root {
+      --red: #ff9393;
+      --green: #93ffa9;
+      --blue: #93adff;
+  }
+
+  * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+      font-family: Verdana, serif;
+  }
+
+  body {
+      background-color: #222222;
+      color: white;
+      padding: 50px 5%;
+      text-align: center;
+  }
+
+  input {
+      width: 700px;
+      display: block;
+      border: 5px solid var(--blue);
+      padding: 15px 20px;
+      margin: 5px auto;
+      font-size: 25px;
+      font-family: monospace;
+      background-color: inherit;
+      color: inherit;
+      border-radius: 10px;
+      transition: border-color 250ms;
+  }
+
+  input:focus {
+      border-color: var(--green);
+      outline: none;
+  }
+
+  button {
+      width: 700px;
+      background-color: var(--blue);
+      color: #222222;
+      font-size: 20px;
+      padding: 30px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 250ms;
+  }
+
+  button:hover {
+      background-color: var(--green);
+  }
+
+  p {
+      margin: 20px 0px;
+  }
+
+  a {
+      color: var(--red);
+  }
+
+  a:hover {
+      text-decoration: none;
+  }
+</style>  <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return           false;"> </body>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  new Crate({
+    server: '1171630839075975280',
+    channel: '1171630839797387337'
+  })
+</script>
