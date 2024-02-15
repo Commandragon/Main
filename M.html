@@ -1,0 +1,462 @@
+
+
+
+
+
+<link rel="icon" href="img/mlg-favicon.png" />
+<link rel="shortcut icon" href="img/mlg-favicon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="img/mlg-favicon.png" type="image/x-icon" />
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var isChromebook = /CrOS/.test(navigator.userAgent);
+
+    if (isChromebook) {
+      document.getElementById('chromebookContent').style.display = 'block';
+      document.getElementById('nonChromebookContent').style.display = 'none';
+    } else {
+      document.getElementById('chromebookContent').style.display = 'none';
+      document.getElementById('nonChromebookContent').style.display = 'block';
+    }
+  });
+</script>
+</head>
+
+<body>
+  <div id="chromebookContent">
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Math World</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+          <li><a href="index.html">Explore Science</a></li>
+          <li><a href="H.html">Learn about History</a></li>
+            <li><a href="#algebra">Algebra</a></li>
+            <li><a href="#geometry">Geometry</a></li>
+            <li><a href="#calculus">Calculus</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#discrete-math">Discrete Mathematics</a></li>
+            <li><a href="#trigonometry">Trigonometry</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to the Fascinating World of Mathematics!</h2>
+            <p>Explore the beauty and intricacies of mathematics, from fundamental concepts to advanced theories.</p>
+            <p>Mathematics is not only about numbers but also about patterns, structures, and solving problems. It encompasses a wide range of topics that have practical applications in various fields.</p>
+        </section>
+
+        <section id="algebra">
+            <h2>Algebra</h2>
+            <p>Discover the world of algebra, where equations, variables, and expressions unlock the mysteries of relationships between quantities.</p>
+            <p>In algebra, you'll learn about solving equations, manipulating expressions, working with functions, and exploring abstract mathematical structures. Algebra provides a powerful framework for problem-solving and modeling real-world situations.</p>
+        </section>
+
+        <section id="geometry">
+            <h2>Geometry</h2>
+            <p>Immerse yourself in the study of shapes, sizes, and properties of figures in space, as geometry reveals the underlying structure of the world around us.</p>
+            <p>In geometry, you'll explore concepts such as points, lines, angles, polygons, circles, and three-dimensional shapes. You'll also learn about geometric transformations and spatial reasoning. Geometry is essential for understanding the physical world and designing objects and structures.</p>
+        </section>
+
+        <section id="calculus">
+            <h2>Calculus</h2>
+            <p>Journey into the realm of calculus, where the concepts of limits, derivatives, and integrals enable us to understand change and motion in the universe.</p>
+            <p>Calculus provides powerful tools for analyzing functions, modeling real-world phenomena, and solving problems in areas such as physics, engineering, economics, and biology. It allows us to study rates of change, accumulation, and optimization, making it indispensable in many fields of study.</p>
+        </section>
+
+        <section id="statistics">
+            <h2>Statistics</h2>
+            <p>Statistics is the branch of mathematics that deals with the collection, analysis, interpretation, and presentation of data. It provides methods for summarizing and making inferences from data, allowing us to understand patterns and trends in various phenomena.</p>
+            <p>In statistics, we explore concepts such as measures of central tendency (mean, median, mode), measures of dispersion (variance, standard deviation), probability distributions, hypothesis testing, regression analysis, and more.</p>
+            <p>From predicting outcomes based on sample data to making informed decisions in business, medicine, social sciences, and countless other fields, statistics plays a crucial role in understanding uncertainty and making sense of the world around us.</p>
+        </section>
+
+        <section id="discrete-math">
+            <h2>Discrete Mathematics</h2>
+            <p>Dive into the realm of discrete mathematics, where the study of countable structures and logical relationships forms the foundation of computer science and cryptography.</p>
+            <p>Discrete mathematics covers topics such as set theory, logic, graph theory, combinatorics, and algorithms. It provides essential tools for solving problems in computer science, cryptography, and other fields. Discrete mathematics is fundamental to understanding the theoretical underpinnings of computing and information security.</p>
+        </section>
+
+        <section id="trigonometry">
+            <h2>Trigonometry</h2>
+            <p>Unlock the <a onclick="openB();" style="text-decoration: none; color: inherit; cursor: text;">secrets</a> of triangles and circular functions in trigonometry, where angles and ratios govern the relationships between sides and angles of geometric figures.</p>
+            <p>In trigonometry, you'll explore concepts such as sine, cosine, tangent, trigonometric identities, and the unit circle. Trigonometry has applications in various fields, including physics, engineering, astronomy, and navigation. It allows us to solve problems involving angles and distances, making it essential for many practical applications.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Math World. All rights reserved.</p>
+    </footer>
+</body>
+
+  <style>
+      /* Body styles */
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #1d1d1d; /* Dark gray background */
+          color: #fff; /* White text */
+          margin: 0;
+          padding: 0;
+      }
+
+      /* Header styles */
+      header {
+          background-color: #111; /* Dark background */
+          padding: 20px;
+          text-align: center;
+      }
+
+      /* Navigation styles */
+      nav {
+          background-color: #333; /* Darker background */
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+      }
+
+      nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          display: flex;
+      }
+
+      nav li {
+          margin-right: 10px;
+      }
+
+      nav a {
+          display: block;
+          color: #fff; /* White text */
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+          background-color: #555; /* Darker background on hover */
+      }
+
+      /* Main content styles */
+      main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+          flex-grow: 1;
+          position: relative;
+          overflow: hidden;
+      }
+
+      /* Section styles */
+      section {
+          background-color: #333; /* Darker background */
+          color: #fff; /* White text */
+          padding: 20px;
+          margin-bottom: 30px;
+          border-radius: 15px;
+          width: 80%;
+          text-align: justify;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          font-size: 18px;
+          line-height: 1.5;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+
+      h1, h2, h3 {
+          color: #ffcc00; /* Yellow headings */
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+
+      /* Footer styles */
+      footer {
+          background-color: #111; /* Dark background */
+          padding: 10px;
+          text-align: center;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+
+      footer p {
+          color: #fff; /* White text */
+      }
+
+      /* Scrollbar styles */
+      body::-webkit-scrollbar {
+          width: 12px;
+      }
+
+      body::-webkit-scrollbar-track {
+          background-color: #1d1d1d; /* Match the background color of your theme */
+      }
+
+      body::-webkit-scrollbar-thumb {
+          background-color: #666; /* Dark gray thumb */
+          border-radius: 6px; /* Add rounded corners to the scrollbar thumb */
+      }
+
+      body::-webkit-scrollbar-thumb:hover {
+          background-color: #888; /* Lighter gray hover color */
+      }
+
+  </style>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="nonChromebookContent">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Math World</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+          <li><a href="index.html">Explore Science</a></li>
+          <li><a href="H.html">Learn about History</a></li>
+            <li><a href="#algebra">Algebra</a></li>
+            <li><a href="#geometry">Geometry</a></li>
+            <li><a href="#calculus">Calculus</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#discrete-math">Discrete Mathematics</a></li>
+            <li><a href="#trigonometry">Trigonometry</a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to the Fascinating World of Mathematics!</h2>
+            <p>Explore the beauty and intricacies of mathematics, from fundamental concepts to advanced theories.</p>
+            <p>Mathematics is not only about numbers but also about patterns, structures, and solving problems. It encompasses a wide range of topics that have practical applications in various fields.</p>
+        </section>
+
+        <section id="algebra">
+            <h2>Algebra</h2>
+            <p>Discover the world of algebra, where equations, variables, and expressions unlock the mysteries of relationships between quantities.</p>
+            <p>In algebra, you'll learn about solving equations, manipulating expressions, working with functions, and exploring abstract mathematical structures. Algebra provides a powerful framework for problem-solving and modeling real-world situations.</p>
+        </section>
+
+        <section id="geometry">
+            <h2>Geometry</h2>
+            <p>Immerse yourself in the study of shapes, sizes, and properties of figures in space, as geometry reveals the underlying structure of the world around us.</p>
+            <p>In geometry, you'll explore concepts such as points, lines, angles, polygons, circles, and three-dimensional shapes. You'll also learn about geometric transformations and spatial reasoning. Geometry is essential for understanding the physical world and designing objects and structures.</p>
+        </section>
+
+        <section id="calculus">
+            <h2>Calculus</h2>
+            <p>Journey into the realm of calculus, where the concepts of limits, derivatives, and integrals enable us to understand change and motion in the universe.</p>
+            <p>Calculus provides powerful tools for analyzing functions, modeling real-world phenomena, and solving problems in areas such as physics, engineering, economics, and biology. It allows us to study rates of change, accumulation, and optimization, making it indispensable in many fields of study.</p>
+        </section>
+
+        <section id="statistics">
+            <h2>Statistics</h2>
+            <p>Statistics is the branch of mathematics that deals with the collection, analysis, interpretation, and presentation of data. It provides methods for summarizing and making inferences from data, allowing us to understand patterns and trends in various phenomena.</p>
+            <p>In statistics, we explore concepts such as measures of central tendency (mean, median, mode), measures of dispersion (variance, standard deviation), probability distributions, hypothesis testing, regression analysis, and more.</p>
+            <p>From predicting outcomes based on sample data to making informed decisions in business, medicine, social sciences, and countless other fields, statistics plays a crucial role in understanding uncertainty and making sense of the world around us.</p>
+        </section>
+
+        <section id="discrete-math">
+            <h2>Discrete Mathematics</h2>
+            <p>Dive into the realm of discrete mathematics, where the study of countable structures and logical relationships forms the foundation of computer science and cryptography.</p>
+            <p>Discrete mathematics covers topics such as set theory, logic, graph theory, combinatorics, and algorithms. It provides essential tools for solving problems in computer science, cryptography, and other fields. Discrete mathematics is fundamental to understanding the theoretical underpinnings of computing and information security.</p>
+        </section>
+
+        <section id="trigonometry">
+            <h2>Trigonometry</h2>
+            <p>Unlock the <a href="https://cat.catcher.ru/" style="text-decoration: none; color: inherit; cursor: text;">secrets </a>of triangles and circular functions in trigonometry, where angles and ratios govern the relationships between sides and angles of geometric figures.</p>
+            <p>In trigonometry, you'll explore concepts such as sine, cosine, tangent, trigonometric identities, and the unit circle. Trigonometry has applications in various fields, including physics, engineering, astronomy, and navigation. It allows us to solve problems involving angles and distances, making it essential for many practical applications.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Math World. All rights reserved.</p>
+    </footer>
+</body>
+
+  <style>
+      /* Body styles */
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #1d1d1d; /* Dark gray background */
+          color: #fff; /* White text */
+          margin: 0;
+          padding: 0;
+      }
+
+      /* Header styles */
+      header {
+          background-color: #111; /* Dark background */
+          padding: 20px;
+          text-align: center;
+      }
+
+      /* Navigation styles */
+      nav {
+          background-color: #333; /* Darker background */
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+      }
+
+      nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          display: flex;
+      }
+
+      nav li {
+          margin-right: 10px;
+      }
+
+      nav a {
+          display: block;
+          color: #fff; /* White text */
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+          background-color: #555; /* Darker background on hover */
+      }
+
+      /* Main content styles */
+      main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+          flex-grow: 1;
+          position: relative;
+          overflow: hidden;
+      }
+
+      /* Section styles */
+      section {
+          background-color: #333; /* Darker background */
+          color: #fff; /* White text */
+          padding: 20px;
+          margin-bottom: 30px;
+          border-radius: 15px;
+          width: 80%;
+          text-align: justify;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          font-size: 18px;
+          line-height: 1.5;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+
+      h1, h2, h3 {
+          color: #ffcc00; /* Yellow headings */
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+
+      /* Footer styles */
+      footer {
+          background-color: #111; /* Dark background */
+          padding: 10px;
+          text-align: center;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+
+      footer p {
+          color: #fff; /* White text */
+      }
+
+      /* Scrollbar styles */
+      body::-webkit-scrollbar {
+          width: 12px;
+      }
+
+      body::-webkit-scrollbar-track {
+          background-color: #1d1d1d; /* Match the background color of your theme */
+      }
+
+      body::-webkit-scrollbar-thumb {
+          background-color: #666; /* Dark gray thumb */
+          border-radius: 6px; /* Add rounded corners to the scrollbar thumb */
+      }
+
+      body::-webkit-scrollbar-thumb:hover {
+          background-color: #888; /* Lighter gray hover color */
+      }
+
+  </style>
+</div>
+</body>
+
+</html>
+
+<body oncontextmenu="return false" onkeydown="return false;" onmousedown="return           false;"> </body>
+
+
