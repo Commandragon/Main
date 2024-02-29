@@ -1,0 +1,374 @@
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+/* Header styles */
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.8);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+nav li {
+    margin-right: 10px;
+}
+
+nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+nav a:hover {
+    background-color: #4CAF50;
+}
+
+/* Section styles */
+section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: justify;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+h1, h2, h3 {
+    color: #00ffcc;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+}
+
+/* Footer styles */
+footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+footer p {
+    color: #fff;
+}
+
+/* Particles container styles */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+/* Scrollbar styles */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #1a1a1a; /* Match the background color of your theme */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #00ffcc; /* Match the neon color of your headers */
+  border-radius: 6px; /* Add rounded corners to the scrollbar thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #00e6b8; /* Match the hover color to the neon shade */
+}
+
+
+
+  body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.8);
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+  }
+
+  nav li {
+    margin-right: 10px;
+  }
+
+  nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    /* Adjusted padding for equal button size */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+  }
+
+  nav a:hover {
+    background-color: #4CAF50;
+  }
+
+  section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: justify;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #00ffcc;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+  }
+
+  footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  footer p {
+    color: #fff;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.8);
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+  }
+
+  nav li {
+    margin-right: 10px;
+  }
+
+  nav a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    /* Adjusted padding for equal button size */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+  }
+
+  nav a:hover {
+    background-color: #4CAF50;
+  }
+
+  section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: justify;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #00ffcc;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+  }
+
+  footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+
+  footer p {
+    color: #fff;
+  }
+
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
