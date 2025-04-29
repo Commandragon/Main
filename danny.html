@@ -1,568 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Danny</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-:root {
-  --wood-dark: #5D4037;
-  --wood-medium: #795548;
-  --wood-color: #8B4513;
-  --wood-light: #A1887F;
-  --wood-pale: #c58149;
-  --text-light: #F5F5F5;
-  --text-dark: #3E2723;
-  --accent-color: #502d00;
-}
-
-/* Reset and base styles */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-  background-color: var(--wood-pale);
-  color: var(--text-dark);
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* Page container */
-.page-wrapper {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* Header styled similarly to the custom audio container */
-header {
-  position: relative;
-  background: var(--wood-dark);
-  padding: 60px 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  color: var(--text-light);
-  text-align: center;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
-  opacity: 0.4;
-  z-index: 0;
-}
-
-/* Ensure header content appears above the gradient */
-header * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Accent decorative element */
-.decorative-line {
-  width: 80px;
-  height: 4px;
-  background: var(--accent-color);
-  margin: 20px auto;
-  border-radius: 2px;
-}
-
-/* Story container with a matching modern card look */
-.story-container {
-  position: relative;
-  background: var(--wood-dark);
-  padding: 40px;
-  margin: 30px auto 60px;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  overflow: hidden;
-  color: var(--text-light);
-}
-
-.story-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
-  opacity: 0.4;
-  z-index: 0;
-}
-
-/* Keep the story content on top of the background overlay */
-.story-container * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Story title with refined typography */
-.story-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: var(--text-light);
-  text-align: center;
-}
-
-/* Story text styling for improved readability */
-.story-text {
-  font-size: 1.1em;
-  line-height: 1.8;
-  color: var(--text-light);
-}
-
-.story-text p {
-  margin-bottom: 16px;
-}
-
-        
-        /* Custom Audio Player */
-        .custom-audio-container {
-            margin: 0 auto 60px;
-            text-align: center;
-            background: var(--wood-dark);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .custom-audio-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
-            opacity: 0.4;
-            z-index: 0;
-        }
-        
-        .audio-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .custom-audio-container h3 {
-            color: #fff;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6em;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .wood-player {
-            background: var(--wood-light);
-            border-radius: 10px;
-            padding: 25px;
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            background-image: 
-                linear-gradient(90deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
-                linear-gradient(90deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
-                linear-gradient(0deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
-                linear-gradient(0deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%);
-            background-repeat: repeat, repeat, repeat, repeat;
-            background-size: 15px 100%, 15px 100%, 100% 15px, 100% 15px;
-            background-position: 0 0, 7.5px 0, 0 0, 0 7.5px;
-        }
-        
-        .player-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .play-btn, .prev-btn, .next-btn {
-            background: #fff;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 0 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .play-btn {
-            width: 60px;
-            height: 60px;
-        }
-        
-        .play-btn:hover, .prev-btn:hover, .next-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-        
-        .play-btn i, .prev-btn i, .next-btn i {
-            color: var(--wood-color);
-            font-size: 1.2em;
-        }
-        
-        .play-btn i {
-            font-size: 1.5em;
-        }
-        
-        .track-info {
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-        }
-        
-        .track-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .track-artist {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-        
-        .progress-container {
-            background: rgba(255,255,255,0.3);
-            height: 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .progress-bar {
-            background: #fff;
-            height: 100%;
-            width: 30%;
-            border-radius: 4px;
-            position: relative;
-        }
-        
-        .time-display {
-            display: flex;
-            justify-content: space-between;
-            color: #fff;
-            font-size: 0.8em;
-        }
-        
-        .volume-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .volume-icon {
-            color: #fff;
-            margin-right: 10px;
-        }
-        
-        .volume-slider {
-            width: 100px;
-            height: 6px;
-            -webkit-appearance: none;
-            background: rgba(255,255,255,0.3);
-            border-radius: 3px;
-            outline: none;
-        }
-        
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #fff;
-            cursor: pointer;
-        }
-        
-        .hidden-audio {
-            display: none;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--wood-dark);
-            font-size: 0.9em;
-            margin-top: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .story-container {
-                padding: 30px;
-            }
-            
-            .story-title {
-                font-size: 2.2em;
-            }
-            
-            .custom-audio-container {
-                padding: 30px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .story-container {
-                padding: 25px 20px;
-            }
-            
-            .story-title {
-                font-size: 1.8em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="page-wrapper">
-        <header>
-            <h1 class="story-title">Discovering Danny</h1>
-            <div class="decorative-line"></div>
-        </header>
-        
-        <div class="story-container">
-            <h2 class="story-title">Finding His Voice</h2>
-            <div class="story-text">
-                <p>Danny Glebus, a determined 9th grader at Two Rivers High School, stared at his reflection in the bathroom mirror. Fresh into high school life, he ran a hand through his ginger hair. His freckles shone like tiny constellations on his pale face—a unique look that set him apart, though he never gave it much thought beyond style. Unaware of any hidden origins or whispered rumors, Danny simply accepted himself as he was, with all his quirks and questions.</p>
-                
-                <p>He splashed water on his face, trying to wash away not just the sleepiness of a new school year but also the quiet uncertainty about who he might become. “I’m not a mistake,” he murmured, more as a gentle reminder than a declaration of defiance. His hands—adept at both strumming a guitar and shaping wood in the workshop—clutched the sink’s edge as the bell signaled the end of lunch and the start of another unpredictable freshman period.</p>
-                
-                <p>In the busy hallway, Danny nearly bumped into James, another 9th grader. Adjusting his thick-rimmed glasses and carefully balancing a stack of textbooks, James offered a soft, reserved smile. “Hey, watch it,” he said quietly. “Still on for woodshop later?”</p>
-                
-                <p>Danny nodded. Woodshop had quickly become his sanctuary—a place where the raw potential of a freshman could be carved into something meaningful. Along with James and the ever-casual Illidan, they found solace in the gentle hum of carving tools and the comforting scent of sawdust.</p>
-                
-                <p>"I'll be there," Danny confirmed. "Is Illidan coming?"</p>
-                
-                <p>"He might drop by," James replied in his soft-spoken manner. "He's taking things easy these days, enjoying the calm instead of chasing big competitions."</p>
-                
-                <p>Before Danny could reply further, Maribel approached from the art wing. A seasoned 11th grader with an unmistakable creative spark, she carried herself with quiet confidence. Her arm, decorated with band names scrawled in marker—with “Nirvana” prominently among them—caught his eye, a nod to the music they both secretly admired.</p>
-                
-                <p>"Hey, Danny," she said with a gentle smile. "Are you going to be in woodshop later? I could really use some help with my project."</p>
-                
-                <p>James offered a small, knowing nod from a distance—a silent encouragement that hinted at unspoken support. Danny couldn’t help but wonder if Maribel’s visits to woodshop meant more than just art projects.</p>
-                
-                <p>"Yeah, I'll be there," Danny replied, eyeing the small paper bag in her hand. "What's that?"</p>
-                
-                <p>Maribel’s smile deepened as she reached into the bag. "I found this and thought of you." She revealed a small metal star pendant. "For your collection."</p>
-                
-                <p>Danny accepted the gift, already proud of the assortment of pendants that marked his journey of self-discovery. "Thanks, it's perfect."</p>
-                
-                <p>As Maribel walked away, James gently nudged Danny. "Maybe someday you’ll ask her out," he said softly, his tone reflective rather than teasing.</p>
-                
-                <p>"I don't know," Danny murmured, turning the new pendant over in his fingers. "I have a lot to figure out."</p>
-                
-                <p>---</p>
-                
-                <p>That afternoon in woodshop, Danny lost himself in the rhythmic task of sanding a small wooden box he was crafting. The smooth, even strokes of the sandpaper and the grain of the wood spoke to him—a blend of precision and creative freedom that resonated deeply. Surrounded by fellow freshmen still finding their way, the woodshop was more than just a class; it was a haven where every chip of wood carried a promise of possibility.</p>
-                
-                <p>Maribel worked at a nearby bench, her occasional glances warm and encouraging. James, quietly observant as ever, alternated between sketching ideas for a shelf and reading a book, his calm presence lending the room an air of understated support.</p>
-                
-                <p>"There's a talent showcase next month," Maribel mentioned softly, breaking the steady rhythm of their work. "You should sign up."</p>
-                
-                <p>Danny snorted lightly. "Right. That's exactly what someone who doubts himself should do—get on stage and prove them wrong."</p>
-                
-                <p>"Don't say that," she countered gently. "I've heard you sing when you think no one's listening."</p>
-                
-                <p>Danny's cheeks warmed. "It's not really singing—it feels like just noise sometimes."</p>
-                
-                <p>"It's not noise," James added quietly from his corner, his soft voice filled with unexpected warmth. "It’s uniquely yours—gritty and soulful in its own way."</p>
-                
-                <p>"Well, maybe I just need to try," Danny conceded, a small smile tugging at his lips.</p>
-                
-                <p>"Just think about it," Maribel said, stepping a bit closer. "Everyone expects you to fit a certain mold, but maybe being different means you’re something entirely new."</p>
-                
-                <p>The words mingled with the scent of sawdust and possibility, echoing softly in the gentle hum of the workshop.</p>
-                
-                <p>---</p>
-                
-                <p>That evening, rather than walking home alone, Danny found himself strolling beside Maribel. Their measured pace mirrored the uncertainties and discoveries of freshman year.</p>
-                
-                <p>"Why do you like woodworking?" she asked softly, breaking the comfortable silence.</p>
-                
-                <p>Danny thought for a moment. "There’s a logic in the grain, the angles, and the finish. But there's also a kind of freedom—the wood seems to suggest its own design, and you just follow along. It’s both precise and creative, like carving out your own path."</p>
-                
-                <p>Maribel nodded. "That’s exactly how I feel about your voice."</p>
-                
-                <p>Danny paused, a little surprised. "What do you mean?"</p>
-                
-                <p>"Your voice is steady and true. It doesn’t try to imitate anyone else—it’s just yours, and that’s something special," she replied softly.</p>
-                
-                <p>Later that night, alone in his room, Danny stared at the guitar his parents had once cherished with high hopes. Picking it up, he strummed a tentative melody, letting his fingers explore new patterns. In that quiet moment, the guitar transformed from a relic of expectations into a vessel for his authentic expression.</p>
-                
-                <p>He wasn’t trying to be anyone else; he was simply Danny Glebus—a 9th-grade freshman learning to find his own voice through music, woodshop, and quiet moments of introspection.</p>
-                
-                <p>---</p>
-                
-                <p>The night of the talent showcase arrived sooner than Danny expected. Backstage, his heart pounded as he clutched his guitar—a tool of personal revelation rather than a symbol of any past expectations. Among nervous freshmen, his resolve had grown, nurtured by the gentle encouragement of friends like James and the kind words of Maribel.</p>
-                
-                <p>James appeared nearby, quietly offering a reassuring nod. "Illidan's around too," he noted softly, referring to their friend who was known more for his relaxed presence than for any grand ambitions.</p>
-                
-                <p>"Great," Danny replied with a light laugh. "So if I stumble, it'll just be another honest moment in front of everyone."</p>
-                
-                <p>"You won't," Maribel said as she approached, holding a small sticker that read simply: "Original." She pressed it onto his guitar case. "Remember, being different doesn't mean being less."</p>
-                
-                <p>When his name was called, Danny stepped onto the stage, the spotlight marking a new chapter in his life. In the audience, he caught sight of his parents’ surprised faces—unaware of his secret determination—and a quiet thumbs-up from Illidan, who was there simply to enjoy the moment.</p>
-                
-                <p>Taking a deep breath, Danny began to play. The song, titled "Dissonant Melody," wove together his struggles, dreams, and emerging identity. It wasn’t perfect, and it certainly wasn’t a reflection of any preconceptions about him, but as his gravelly voice filled the auditorium, he realized that being true to himself was what mattered most.</p>
-                
-                <p>He was Danny Glebus—a 9th grader, a craftsman in woodshop, a quiet friend, and perhaps something more to Maribel—and his melody, however dissonant to some, was unmistakably his own.</p>
-            </div>
-        </div>
-        
-        
-        <div class="custom-audio-container">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Discover Danny</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+      <style>
+         :root {
+         --wood-dark: #5D4037;
+         --wood-medium: #795548;
+         --wood-color: #8B4513;
+         --wood-light: #A1887F;
+         --wood-pale: #c58149;
+         --text-light: #F5F5F5;
+         --text-dark: #3E2723;
+         --accent-color: #502d00;
+         }
+         /* Reset and base styles */
+         *, *::before, *::after {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         body {
+         font-family: 'Raleway', sans-serif;
+         background-color: var(--wood-pale);
+         color: var(--text-dark);
+         line-height: 1.6;
+         min-height: 100vh;
+         }
+         /* Page container */
+         .page-wrapper {
+         max-width: 1200px;
+         margin: 40px auto;
+         padding: 20px;
+         }
+         /* Header styled similarly to the custom audio container */
+         header {
+         position: relative;
+         background: var(--wood-dark);
+         padding: 60px 20px;
+         border-radius: 12px;
+         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+         color: var(--text-light);
+         text-align: center;
+         overflow: hidden;
+         margin-bottom: 40px;
+         }
+         header::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
+         opacity: 0.4;
+         z-index: 0;
+         }
+         /* Ensure header content appears above the gradient */
+         header * {
+         position: relative;
+         z-index: 1;
+         }
+         /* Accent decorative element */
+         .decorative-line {
+         width: 80px;
+         height: 4px;
+         background: var(--accent-color);
+         margin: 20px auto;
+         border-radius: 2px;
+         }
+         /* Story container with a matching modern card look */
+         .story-container {
+         position: relative;
+         background: var(--wood-dark);
+         padding: 40px;
+         margin: 30px auto 60px;
+         max-width: 800px;
+         border-radius: 12px;
+         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+         overflow: hidden;
+         color: var(--text-light);
+         }
+         .story-container::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
+         opacity: 0.4;
+         z-index: 0;
+         }
+         /* Keep the story content on top of the background overlay */
+         .story-container * {
+         position: relative;
+         z-index: 1;
+         }
+         /* Story title with refined typography */
+         .story-title {
+         font-family: 'Playfair Display', serif;
+         font-size: 2.5em;
+         margin-bottom: 20px;
+         color: var(--text-light);
+         text-align: center;
+         }
+         /* Story text styling for improved readability */
+         .story-text {
+         font-size: 1.1em;
+         line-height: 1.8;
+         color: var(--text-light);
+         }
+         .story-text p {
+         margin-bottom: 16px;
+         }
+         /* Custom Audio Player */
+         .custom-audio-container {
+         margin: 0 auto 60px;
+         text-align: center;
+         background: var(--wood-dark);
+         padding: 40px;
+         border-radius: 12px;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+         max-width: 800px;
+         position: relative;
+         overflow: hidden;
+         }
+         .custom-audio-container::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 100%;
+         width: 100%;
+         background: linear-gradient(45deg, var(--wood-color) 0%, var(--wood-light) 100%);
+         opacity: 0.4;
+         z-index: 0;
+         }
+         .audio-content {
+         position: relative;
+         z-index: 1;
+         }
+         .custom-audio-container h3 {
+         color: #fff;
+         font-family: 'Playfair Display', serif;
+         font-size: 1.6em;
+         margin-bottom: 30px;
+         text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+         }
+         .wood-player {
+         background: var(--wood-light);
+         border-radius: 10px;
+         padding: 25px;
+         position: relative;
+         max-width: 500px;
+         margin: 0 auto;
+         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+         background-image: 
+         linear-gradient(90deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
+         linear-gradient(90deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
+         linear-gradient(0deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%),
+         linear-gradient(0deg, rgba(139, 69, 19, 0.3) 50%, transparent 50%);
+         background-repeat: repeat, repeat, repeat, repeat;
+         background-size: 15px 100%, 15px 100%, 100% 15px, 100% 15px;
+         background-position: 0 0, 7.5px 0, 0 0, 0 7.5px;
+         }
+         .player-controls {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 20px;
+         }
+         .play-btn, .prev-btn, .next-btn {
+         background: #fff;
+         border: none;
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+         margin: 0 10px;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+         transition: all 0.3s ease;
+         }
+         .play-btn {
+         width: 60px;
+         height: 60px;
+         }
+         .play-btn:hover, .prev-btn:hover, .next-btn:hover {
+         transform: scale(1.1);
+         box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+         }
+         .play-btn i, .prev-btn i, .next-btn i {
+         color: var(--wood-color);
+         font-size: 1.2em;
+         }
+         .play-btn i {
+         font-size: 1.5em;
+         }
+         .track-info {
+         color: #fff;
+         margin-bottom: 20px;
+         text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+         }
+         .track-title {
+         font-size: 1.2em;
+         font-weight: 600;
+         margin-bottom: 5px;
+         }
+         .track-artist {
+         font-size: 0.9em;
+         opacity: 0.8;
+         }
+         .progress-container {
+         background: rgba(255,255,255,0.3);
+         height: 8px;
+         border-radius: 4px;
+         margin-bottom: 10px;
+         overflow: hidden;
+         position: relative;
+         }
+         .progress-bar {
+         background: #fff;
+         height: 100%;
+         width: 30%;
+         border-radius: 4px;
+         position: relative;
+         }
+         .time-display {
+         display: flex;
+         justify-content: space-between;
+         color: #fff;
+         font-size: 0.8em;
+         }
+         .volume-container {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 20px;
+         }
+         .volume-icon {
+         color: #fff;
+         margin-right: 10px;
+         }
+         .volume-slider {
+         width: 100px;
+         height: 6px;
+         -webkit-appearance: none;
+         background: rgba(255,255,255,0.3);
+         border-radius: 3px;
+         outline: none;
+         }
+         .volume-slider::-webkit-slider-thumb {
+         -webkit-appearance: none;
+         width: 15px;
+         height: 15px;
+         border-radius: 50%;
+         background: #fff;
+         cursor: pointer;
+         }
+         .hidden-audio {
+         display: none;
+         }
+         footer {
+         text-align: center;
+         padding: 20px;
+         color: var(--wood-dark);
+         font-size: 0.9em;
+         margin-top: 40px;
+         }
+         @media (max-width: 768px) {
+         .story-container {
+         padding: 30px;
+         }
+         .story-title {
+         font-size: 2.2em;
+         }
+         .custom-audio-container {
+         padding: 30px 20px;
+         }
+         }
+         @media (max-width: 480px) {
+         .story-container {
+         padding: 25px 20px;
+         }
+         .story-title {
+         font-size: 1.8em;
+         }
+         }
+         #site-timer-display {
+         font-size: 1.2em;
+         font-weight: bold;
+         color: var(--wood-dark);
+         padding: 5px 10px;
+         background-color: rgba(255, 255, 255, 0.2);
+         border-radius: 4px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="page-wrapper">
+      <header>
+         <h1 class="story-title">Discovering Danny</h1>
+         <div class="decorative-line"></div>
+      </header>
+      <div class="story-container">
+         <h2 class="story-title">Finding His Voice</h2>
+         <div class="story-text" id="part1">
+            <p>Danny Glebus, a determined 9th grader at Two Rivers High School, stared at his reflection in the bathroom mirror. Fresh into high school life, he ran a hand through his ginger hair. His freckles shone like tiny constellations on his pale face—a unique look that set him apart, though he never gave it much thought beyond style. Unaware of any hidden origins or whispered rumors, Danny simply accepted himself as he was, with all his quirks and questions.</p>
+            <p>He splashed water on his face, trying to wash away not just the sleepiness of a new school year but also the quiet uncertainty about who he might become. “I’m not a mistake,” he murmured, more as a gentle reminder than a declaration of defiance. His hands—adept at both strumming a guitar and shaping wood in the workshop—clutched the sink’s edge as the bell signaled the end of lunch and the start of another unpredictable freshman period.</p>
+            <p>In the busy hallway, Danny nearly bumped into James, another 9th grader. Adjusting his thick-rimmed glasses and carefully balancing a stack of textbooks, James offered a soft, reserved smile. “Hey, watch it,” he said quietly. “Still on for woodshop later?”</p>
+            <p>Danny nodded. Woodshop had quickly become his sanctuary—a place where the raw potential of a freshman could be carved into something meaningful. Along with James and the ever-casual Illidan, they found solace in the gentle hum of carving tools and the comforting scent of sawdust.</p>
+            <p>"I'll be there," Danny confirmed. "Is Illidan coming?"</p>
+            <p>"He might drop by," James replied in his soft-spoken manner. "He's taking things easy these days, enjoying the calm instead of chasing big competitions."</p>
+            <p>Before Danny could reply further, Maribel approached from the art wing. A seasoned 11th grader with an unmistakable creative spark, she carried herself with quiet confidence. Her arm, decorated with band names scrawled in marker—with “Nirvana” prominently among them—caught his eye, a nod to the music they both secretly admired.</p>
+            <p>"Hey, Danny," she said with a gentle smile. "Are you going to be in woodshop later? I could really use some help with my project."</p>
+            <p>James offered a small, knowing nod from a distance—a silent encouragement that hinted at unspoken support. Danny couldn’t help but wonder if Maribel’s visits to woodshop meant more than just art projects.</p>
+            <p>"Yeah, I'll be there," Danny replied, eyeing the small paper bag in her hand. "What's that?"</p>
+            <p>Maribel’s smile deepened as she reached into the bag. "I found this and thought of you." She revealed a small metal star pendant. "For your collection."</p>
+            <p>Danny accepted the gift, already proud of the assortment of pendants that marked his journey of self-discovery. "Thanks, it's perfect."</p>
+            <p>As Maribel walked away, James gently nudged Danny. "Maybe someday you’ll ask her out," he said softly, his tone reflective rather than teasing.</p>
+            <p>"I don't know," Danny murmured, turning the new pendant over in his fingers. "I have a lot to figure out."</p>
+            <p>---</p>
+            <p>That afternoon in woodshop, Danny lost himself in the rhythmic task of sanding a small wooden box he was crafting. The smooth, even strokes of the sandpaper and the grain of the wood spoke to him—a blend of precision and creative freedom that resonated deeply. Surrounded by fellow freshmen still finding their way, the woodshop was more than just a class; it was a haven where every chip of wood carried a promise of possibility.</p>
+            <p>Maribel worked at a nearby bench, her occasional glances warm and encouraging. James, quietly observant as ever, alternated between sketching ideas for a shelf and reading a book, his calm presence lending the room an air of understated support.</p>
+            <p>"There's a talent showcase next month," Maribel mentioned softly, breaking the steady rhythm of their work. "You should sign up."</p>
+            <p>Danny snorted lightly. "Right. That's exactly what someone who doubts himself should do—get on stage and prove them wrong."</p>
+            <p>"Don't say that," she countered gently. "I've heard you sing when you think no one's listening."</p>
+            <p>Danny's cheeks warmed. "It's not really singing—it feels like just noise sometimes."</p>
+            <p>"It's not noise," James added quietly from his corner, his soft voice filled with unexpected warmth. "It’s uniquely yours—gritty and soulful in its own way."</p>
+            <p>"Well, maybe I just need to try," Danny conceded, a small smile tugging at his lips.</p>
+            <p>"Just think about it," Maribel said, stepping a bit closer. "Everyone expects you to fit a certain mold, but maybe being different means you’re something entirely new."</p>
+            <p>The words mingled with the scent of sawdust and possibility, echoing softly in the gentle hum of the workshop.</p>
+            <p>---</p>
+            <p>That evening, rather than walking home alone, Danny found himself strolling beside Maribel. Their measured pace mirrored the uncertainties and discoveries of freshman year.</p>
+            <p>"Why do you like woodworking?" she asked softly, breaking the comfortable silence.</p>
+            <p>Danny thought for a moment. "There’s a logic in the grain, the angles, and the finish. But there's also a kind of freedom—the wood seems to suggest its own design, and you just follow along. It’s both precise and creative, like carving out your own path."</p>
+            <p>Maribel nodded. "That’s exactly how I feel about your voice."</p>
+            <p>Danny paused, a little surprised. "What do you mean?"</p>
+            <p>"Your voice is steady and true. It doesn’t try to imitate anyone else—it’s just yours, and that’s something special," she replied softly.</p>
+            <p>Later that night, alone in his room, Danny stared at the guitar his parents had once cherished with high hopes. Picking it up, he strummed a tentative melody, letting his fingers explore new patterns. In that quiet moment, the guitar transformed from a relic of expectations into a vessel for his authentic expression.</p>
+            <p>He wasn’t trying to be anyone else; he was simply Danny Glebus—a 9th-grade freshman learning to find his own voice through music, woodshop, and quiet moments of introspection.</p>
+            <p>---</p>
+            <p>The night of the talent showcase arrived sooner than Danny expected. Backstage, his heart pounded as he clutched his guitar—a tool of personal revelation rather than a symbol of any past expectations. Among nervous freshmen, his resolve had grown, nurtured by the gentle encouragement of friends like James and the kind words of Maribel.</p>
+            <p>James appeared nearby, quietly offering a reassuring nod. "Illidan's around too," he noted softly, referring to their friend who was known more for his relaxed presence than for any grand ambitions.</p>
+            <p>"Great," Danny replied with a light laugh. "So if I stumble, it'll just be another honest moment in front of everyone."</p>
+            <p>"You won't," Maribel said as she approached, holding a small sticker that read simply: "Original." She pressed it onto his guitar case. "Remember, being different doesn't mean being less."</p>
+            <p>When his name was called, Danny stepped onto the stage, the spotlight marking a new chapter in his life. In the audience, he caught sight of his parents’ surprised faces—unaware of his secret determination—and a quiet thumbs-up from Illidan, who was there simply to enjoy the moment.</p>
+            <p>Taking a deep breath, Danny began to play. The song, titled "Dissonant Melody," wove together his struggles, dreams, and emerging identity. It wasn’t perfect, and it certainly wasn’t a reflection of any preconceptions about him, but as his gravelly voice filled the auditorium, he realized that being true to himself was what mattered most.</p>
+            <p>He was Danny Glebus—a 9th grader, a craftsman in woodshop, a quiet friend, and perhaps something more to Maribel—and his melody, however dissonant to some, was unmistakably his own.</p>
+         </div>
+         <!-- Part 2 (initially hidden) -->
+         <div class="story-text" id="part2" style="display: none;">
+            <h2 class="story-title">The Echo of the Melody</h2>
+            <p>The final chord of Danny’s "Dissonant Melody" hung in the auditorium air, thick with a silence that felt heavier than any applause could. Then, it broke – not with a roar, but with a hesitant ripple that grew steadily warmer, more genuine. It wasn't the thunderous ovation reserved for polished performers, but something more akin to thoughtful appreciation, acknowledging the raw honesty he'd laid bare. The audience, perhaps expecting something different, seemed to process the performance not just as a song, but as a statement. Backstage, the fluorescent lights hummed, a stark contrast to the stage spotlight. Adrenaline still pulsed under Danny’s skin, making his hands tremble slightly as he carefully placed his guitar back in its case, his fingers brushing against the "Original" sticker.</p>
+            <p>His parents found him first, navigating the tangle of cables and nervous energy backstage. Their faces held a complex mixture of pride, confusion, and a dawning understanding that felt like watching ice slowly melt. "Danny," his mom began, her voice softer than usual, searching his face, "we... we had no idea you were working on something like that. It was… quite something." She seemed to grapple for the right words, unsure how to reconcile this raw, gravelly performance with the quiet son they thought they knew. His dad, often a man of few words, simply clapped him firmly on the shoulder, holding his gaze for a moment longer than usual. It was a silent acknowledgment, a gesture that somehow conveyed more respect than effusive praise ever could, suggesting a bridge forming over unspoken expectations.</p>
+            <p>James materialized beside him, pushing his glasses up his nose with characteristic thoughtfulness. He offered a quiet, deeply approving nod. "See? Told you it wasn't just noise," he murmured, his reserved smile conveying a genuine satisfaction, as if Danny’s success was partly his own. Illidan, leaning casually against a stack of amplifiers, offered a lazy grin, the picture of relaxed support. "Not bad, Glebus. Seriously. Got some real grit in there. Kind of reminded me of… well, something real." He shrugged, his casualness a comforting counterpoint to the lingering intensity of the performance.</p>
+            <p>Maribel waited until his parents and the others had drifted slightly, creating a small pocket of quiet amidst the backstage buzz. Her eyes, usually sparkling with creative energy, now shone with a profound admiration that made Danny’s heart thump anew. "See?" she whispered, gently tapping the sticker on his guitar case, her touch lingering for a fraction of a second. "'Original.' You didn't just play a song, Danny. You shared a piece of yourself up there. Raw edges and all. That takes more courage than hitting every note perfectly." Her words felt like a balm, validating not just the performance, but the tentative steps he was taking toward embracing his own identity.</p>
+            <p>In the weeks that followed, a subtle but definite shift occurred within Danny. The talent show hadn't magically erased his uncertainties or silenced the quiet inner critic entirely, but it had undeniably cracked open a door, letting in a sliver of light. Walking through the crowded hallways of Two Rivers High felt different; he carried himself with a little less weight on his shoulders, a little more quiet confidence in his stride. Some students offered curious glances, others a nod of recognition, a few even mentioned liking the song's "unique vibe." The performance had created ripples, small echoes of his dissonant melody bouncing off the lockers and classroom walls.</p>
+            <p>He found himself drawn to his guitar more often, not out of obligation or a desire to meet some imagined standard, but from genuine curiosity. He explored the fretboard with less self-consciousness, experimenting with unconventional chords and letting the "dissonant" sounds emerge without judgment. He focused on the texture of the music, the feeling it evoked, rather than just technical precision. It reminded him of working with wood – sometimes the most interesting patterns emerged from the knots and imperfections, the unexpected twists in the grain. He started writing down fragments of lyrics, observations about the world around him, lines that felt true even if they didn't rhyme perfectly.</p>
+            <p>Woodshop remained his sanctuary, but now it felt even more collaborative. He, James, and Illidan fell into a comfortable rhythm. James’s meticulous planning and precise measurements would lay the groundwork for a project – perhaps a complex joint for a bookshelf – while Danny might suggest a more intuitive, organic shape for the edges, seeing the potential in the wood's natural lines. Illidan, meanwhile, would bring his patient, steady hand to the finishing touches, sanding surfaces smooth with an easygoing focus that belied his skill. Their shared creative space became a microcosm of their friendship – different approaches complementing each other, building something stronger together amidst the comforting scent of sawdust and the hum of machinery.</p>
+            <p>His connection with Maribel deepened organically, moving beyond shared interests into shared vulnerability. They walked home together more frequently, the comfortable silences punctuated by conversations that felt increasingly meaningful. He learned about her passion for capturing fleeting expressions in charcoal sketches, her frustration with artistic blocks, her dreams of seeing her work displayed somewhere beyond the school art wing. She, in turn, listened patiently as he haltingly described the feelings behind his lyrics or his quiet satisfaction in shaping a piece of wood into something useful and beautiful. One crisp autumn afternoon, walking beneath trees shedding golden leaves, the comfortable silence stretched, and Danny felt a familiar knot of anxiety replaced by a quiet resolve. He took a breath, the scent of damp earth filling his lungs. "Maribel," he started, his voice steadier than he'd anticipated, "I really like talking with you. Would you... maybe want to hang out sometime? Like, outside of school and woodshop? Maybe grab a coffee or something?"</p>
+            <p>She stopped walking and turned to him, a genuine, radiant smile lighting up her face, reaching all the way to her eyes. There was no hesitation, only warmth. "I'd like that, Danny," she said softly, the sincerity in her voice unmistakable. "I'd like that a lot."</p>
+            <p>Danny Glebus was still figuring things out, still charting the complex territory of high school, friendship, and identity. The path wasn't always clear, and doubts still surfaced like shadows at dusk. But now, he walked with a firmer step, grounded by the tangible reality of the wood he shaped and the resonant chords he played. His own unique melody, once perceived as dissonant, was beginning to harmonize within him, playing softly but persistently. He was learning that finding your voice wasn't about eliminating the discordant notes, but about weaving them into a composition that was authentically, undeniably yours.</p>
+         </div>
+         <div class="custom-audio-container">
             <div class="audio-content">
-                <h3>Listen to "Dissonant Melody" by Danny</h3>
-                <div class="wood-player">
-                    <div class="track-info">
-                        <div class="track-title">Dissonant Melody</div>
-                        <div class="track-artist">Danny Glebus</div>
-                    </div>
-                    
-                    <div class="player-controls">
-                        <button class="prev-btn">
-                            <i class="fas fa-step-backward"></i>
-                        </button>
-                        <button class="play-btn">
-                            <i class="fas fa-play" id="play-icon"></i>
-                        </button>
-                        <button class="next-btn">
-                            <i class="fas fa-step-forward"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="progress-container">
-                        <div class="progress-bar" id="progress"></div>
-                    </div>
-                    
-                    <div class="time-display">
-                        <span id="current-time">0:00</span>
-                        <span id="duration">3:45</span>
-                    </div>
-                    
-                    <div class="volume-container">
-                        <div class="volume-icon">
-                            <i class="fas fa-volume-up"></i>
-                        </div>
-                        <input type="range" class="volume-slider" min="0" max="100" value="70">
-                    </div>
-                </div>
-                
-                <!-- Actual audio element hidden but functional -->
-                <audio id="audio-track" class="hidden-audio">
-                    <source src="danny.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+               <h3>Listen to "Dissonant Melody" by Danny</h3>
+               <div class="wood-player">
+                  <div class="track-info">
+                     <div class="track-title">Dissonant Melody</div>
+                     <div class="track-artist">Danny Glebus</div>
+                  </div>
+                  <div class="player-controls">
+                     <button class="prev-btn">
+                     <i class="fas fa-step-backward"></i>
+                     </button>
+                     <button class="play-btn">
+                     <i class="fas fa-play" id="play-icon"></i>
+                     </button>
+                     <button class="next-btn">
+                     <i class="fas fa-step-forward"></i>
+                     </button>
+                  </div>
+                  <div class="progress-container">
+                     <div class="progress-bar" id="progress"></div>
+                  </div>
+                  <div class="time-display">
+                     <span id="current-time">0:00</span>
+                     <span id="duration">3:45</span>
+                  </div>
+                  <div class="volume-container">
+                     <div class="volume-icon">
+                        <i class="fas fa-volume-up"></i>
+                     </div>
+                     <input type="range" class="volume-slider" min="0" max="100" value="70">
+                  </div>
+               </div>
+               <!-- Actual audio element hidden but functional -->
+               <audio id="audio-track" class="hidden-audio">
+                  <source src="danny.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+               </audio>
             </div>
-        </div>
-        
-        <footer>
-            <p>&copy; 2025 The Dissonant Melody | Danny's Journey</p>
-        </footer>
-    </div>
-    
-    <script>
-        // Custom Audio Player Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const audioTrack = document.getElementById('audio-track');
-            const playBtn = document.querySelector('.play-btn');
-            const playIcon = document.getElementById('play-icon');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const progress = document.getElementById('progress');
-            const progressContainer = document.querySelector('.progress-container');
-            const currentTimeEl = document.getElementById('current-time');
-            const durationEl = document.getElementById('duration');
-            const volumeSlider = document.querySelector('.volume-slider');
-            
-            // Play/Pause functionality
-            playBtn.addEventListener('click', function() {
-                if (audioTrack.paused) {
-                    audioTrack.play();
-                    playIcon.classList.remove('fa-play');
-                    playIcon.classList.add('fa-pause');
-                } else {
-                    audioTrack.pause();
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play');
-                }
-            });
-            
-            // Previous and Next buttons (for demo)
-            prevBtn.addEventListener('click', function() {
-                audioTrack.currentTime = 0;
-                if (audioTrack.paused) {
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play');
-                }
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                audioTrack.currentTime = 0;
-                if (audioTrack.paused) {
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play');
-                }
-            });
-            
-            // Update progress bar
-            audioTrack.addEventListener('timeupdate', function() {
-                const progressPercent = (audioTrack.currentTime / audioTrack.duration) * 100;
-                progress.style.width = progressPercent + '%';
-                
-                // Update current time
-                const mins = Math.floor(audioTrack.currentTime / 60);
-                const secs = Math.floor(audioTrack.currentTime % 60);
-                currentTimeEl.textContent = mins + ':' + (secs < 10 ? '0' + secs : secs);
-            });
-            
-            // Set duration when metadata is loaded
-            audioTrack.addEventListener('loadedmetadata', function() {
-                const mins = Math.floor(audioTrack.duration / 60);
-                const secs = Math.floor(audioTrack.duration % 60);
-                durationEl.textContent = mins + ':' + (secs < 10 ? '0' + secs : secs);
-            });
-            
-            // Click on progress bar to seek
-            progressContainer.addEventListener('click', function(e) {
-                const width = this.clientWidth;
-                const clickX = e.offsetX;
-                const duration = audioTrack.duration;
-                
-                audioTrack.currentTime = (clickX / width) * duration;
-            });
-            
-            // Volume control
-            volumeSlider.addEventListener('input', function() {
-                audioTrack.volume = this.value / 100;
-            });
-        });
-    </script>
-</body>
+         </div>
+         <footer>
+            <p>&copy; 2025 The Dissonant Melody | Danny's Journey | <span id="site-timer-display">00:00:00</span> </p>
+         </footer>
+      </div>
+      <script>
+         // Custom Audio Player Functionality
+         document.addEventListener('DOMContentLoaded', function() {
+             const audioTrack = document.getElementById('audio-track');
+             const playBtn = document.querySelector('.play-btn');
+             const playIcon = document.getElementById('play-icon');
+             const prevBtn = document.querySelector('.prev-btn');
+             const nextBtn = document.querySelector('.next-btn');
+             const progress = document.getElementById('progress');
+             const progressContainer = document.querySelector('.progress-container');
+             const currentTimeEl = document.getElementById('current-time');
+             const durationEl = document.getElementById('duration');
+             const volumeSlider = document.querySelector('.volume-slider');
+             
+             // Play/Pause functionality
+             playBtn.addEventListener('click', function() {
+                 if (audioTrack.paused) {
+                     audioTrack.play();
+                     playIcon.classList.remove('fa-play');
+                     playIcon.classList.add('fa-pause');
+                 } else {
+                     audioTrack.pause();
+                     playIcon.classList.remove('fa-pause');
+                     playIcon.classList.add('fa-play');
+                 }
+             });
+             
+             // Previous and Next buttons (for demo)
+             prevBtn.addEventListener('click', function() {
+                 audioTrack.currentTime = 0;
+                 if (audioTrack.paused) {
+                     playIcon.classList.remove('fa-pause');
+                     playIcon.classList.add('fa-play');
+                 }
+             });
+             
+             nextBtn.addEventListener('click', function() {
+                 audioTrack.currentTime = 0;
+                 if (audioTrack.paused) {
+                     playIcon.classList.remove('fa-pause');
+                     playIcon.classList.add('fa-play');
+                 }
+             });
+             
+             // Update progress bar
+             audioTrack.addEventListener('timeupdate', function() {
+                 const progressPercent = (audioTrack.currentTime / audioTrack.duration) * 100;
+                 progress.style.width = progressPercent + '%';
+                 
+                 // Update current time
+                 const mins = Math.floor(audioTrack.currentTime / 60);
+                 const secs = Math.floor(audioTrack.currentTime % 60);
+                 currentTimeEl.textContent = mins + ':' + (secs < 10 ? '0' + secs : secs);
+             });
+             
+             // Set duration when metadata is loaded
+             audioTrack.addEventListener('loadedmetadata', function() {
+                 const mins = Math.floor(audioTrack.duration / 60);
+                 const secs = Math.floor(audioTrack.duration % 60);
+                 durationEl.textContent = mins + ':' + (secs < 10 ? '0' + secs : secs);
+             });
+             
+             // Click on progress bar to seek
+             progressContainer.addEventListener('click', function(e) {
+                 const width = this.clientWidth;
+                 const clickX = e.offsetX;
+                 const duration = audioTrack.duration;
+                 
+                 audioTrack.currentTime = (clickX / width) * duration;
+             });
+             
+             // Volume control
+             volumeSlider.addEventListener('input', function() {
+                 audioTrack.volume = this.value / 100;
+             });
+         });
+         
+         
+         
+         (function() {
+         const timerDisplay = document.getElementById('site-timer-display');
+         const cookieName = 'siteVisitDurationSeconds'; // Name of our cookie
+         const saveIntervalSeconds = 5; // How often to save to cookie (in seconds)
+         
+         let intervalId = null;
+         let pageViewStartTime = Date.now(); // When did this specific page view start?
+         let accumulatedSeconds = 0;         // Total seconds from previous visits/page views
+         let lastSaveTime = Date.now();      // Track when we last saved to cookie
+         
+         // --- Cookie Helper Functions ---
+         function setCookie(name, value, days) {
+         let expires = "";
+         if (days) {
+             const date = new Date();
+             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+             expires = "; expires=" + date.toUTCString();
+         }
+         document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+         }
+         
+         function getCookie(name) {
+         const nameEQ = name + "=";
+         const ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+             let c = ca[i];
+             while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+             if (c.indexOf(nameEQ) == 0) {
+                 const value = c.substring(nameEQ.length, c.length);
+                 return value;
+             }
+         }
+         return null;
+         }
+         
+         // --- Time Formatting ---
+         function formatTime(totalSeconds) {
+         totalSeconds = Math.floor(totalSeconds); // Ensure whole seconds
+         const hours = Math.floor(totalSeconds / 3600);
+         const minutes = Math.floor((totalSeconds % 3600) / 60);
+         const seconds = totalSeconds % 60;
+         
+         // Pad with leading zeros
+         const paddedHours = String(hours).padStart(2, '0');
+         const paddedMinutes = String(minutes).padStart(2, '0');
+         const paddedSeconds = String(seconds).padStart(2, '0');
+         
+         return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+         }
+         
+         // --- Core Timer Logic ---
+         function updateTimer() {
+         const now = Date.now();
+         const secondsOnThisPage = (now - pageViewStartTime) / 1000;
+         const totalSeconds = accumulatedSeconds + secondsOnThisPage;
+         
+         // Update display with larger font
+         if (timerDisplay) {
+             timerDisplay.style.fontSize = '1.2em';
+             timerDisplay.style.fontWeight = 'bold';
+             timerDisplay.textContent = formatTime(totalSeconds);
+         }
+         
+         // Check if user has reached 10 days (864000 seconds)
+         if (totalSeconds >= 864000) {
+             document.getElementById('part2').style.display = 'block';
+         }
+         
+         // Save more frequently and for longer (30 days)
+         if ((now - lastSaveTime) / 1000 >= saveIntervalSeconds) {
+             saveTimeToCookie();
+         }
+         }
+         
+         // Increase cookie duration to 30 days
+         function saveTimeToCookie() {
+         const now = Date.now();
+         const secondsOnThisPage = (now - pageViewStartTime) / 1000;
+         const totalSecondsToSave = Math.floor(accumulatedSeconds + secondsOnThisPage);
+         setCookie(cookieName, totalSecondsToSave, 30); // Save for 30 days
+         lastSaveTime = now;
+         }
+         
+         // --- Initialization ---
+         function startTimer() {
+         // 1. Read existing time from cookie
+         const storedSeconds = getCookie(cookieName);
+         if (storedSeconds !== null && !isNaN(storedSeconds)) {
+             accumulatedSeconds = parseInt(storedSeconds, 10);
+         } else {
+             accumulatedSeconds = 0;
+         }
+         
+         // Reset page view start time for this load
+         pageViewStartTime = Date.now();
+         lastSaveTime = Date.now(); // Init last save time
+         
+         // Update timer display immediately with loaded/initial value
+          updateTimer(); // Call once immediately to show initial time
+         
+         // 2. Start the interval timer to update display every second
+         if (intervalId) {
+              clearInterval(intervalId); // Clear any existing interval (safety)
+         }
+         intervalId = setInterval(updateTimer, 1000); // Update every 1 second
+         
+         // 3. Add listener to save time when the user leaves the page
+         // 'beforeunload' is more reliable than 'unload' for saving state
+         window.addEventListener('beforeunload', saveTimeToCookie);
+         }
+         
+         // --- Run ---
+         // Make sure the DOM is ready before trying to access elements
+         if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', startTimer);
+         } else {
+         // DOMContentLoaded has already fired
+         startTimer();
+         }
+         
+         })();
+      </script>
+   </body>
 </html>
