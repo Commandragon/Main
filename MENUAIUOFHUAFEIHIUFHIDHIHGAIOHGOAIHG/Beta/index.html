@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Delta</title>
+    <style>
+        :root {
+            --background-color: #10131a;
+            --primary-color: #00ff99;
+            --bright-color: #a1ffe7;
+            --secondary-bg: #181c24;
+            --text-color: #fff;
+            --text-muted: #b0b8c1;
+            --border-color: #333;
+            --font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--background-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Matrix background canvas */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        header {
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 32px 0 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 24px rgba(0, 255, 153, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 8px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            text-shadow: 0 0 8px var(--primary-color);
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        nav {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: rgba(0, 255, 153, 0.1);
+            border-color: var(--primary-color);
+            text-shadow: 0 0 4px var(--primary-color);
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 32px auto 0 auto;
+            padding: 32px 24px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 4px 24px rgba(0, 255, 153, 0.05);
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            text-shadow: 0 0 4px var(--primary-color);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(0, 255, 153, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(0, 255, 153, 0.2);
+        }
+
+        .faq-q {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--bright-color);
+            font-size: 1.1rem;
+        }
+
+        .faq-a {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-left: 0;
+        }
+
+        .faq-a a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .faq-a a:hover {
+            color: var(--bright-color);
+            text-shadow: 0 0 4px var(--bright-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 20px 0;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Loading overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .loading-text {
+            text-shadow: 0 0 8px var(--primary-color);
+        }
+
+        @media (max-width: 700px) {
+            main {
+                margin: 16px 16px 0 16px;
+                padding: 20px 16px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .faq-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loading-text">Initializing Delta...</div>
+    </div>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <header>
+        <h1>FAQ</h1>
+        <h2>Help &amp; Common Questions</h2>
+        <nav>
+            <a href="/MENUAIUOFHUAFEIHIUFHIDHIHGAIOHGOAIHG/index.html">&#8592; Back to Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Access Issues</h2>
+            <div class="faq-item">
+                <div class="faq-q">Why can't I or someone I know access the games?</div>
+                <div class="faq-a">If you (or someone you know) did not click on "Brown" the first time you left the site, your device may have been marked as a teacher device. Don't worry! To regain access, simply clear your cookies and try again. (Note: This feature is not yet implemented.)</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Website Name Change</h2>
+            <div class="faq-item">
+                <div class="faq-q">Why was the website name changed?</div>
+                <div class="faq-a">You might have noticed that the website's name changed to Delta. This is because this is the 4th version of the site and we wanted a name that reflects its evolution.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Security & Access</h2>
+            <div class="faq-item">
+                <div class="faq-q">Why does the site require special access conditions?</div>
+                <div class="faq-a">Delta implements advanced security measures to ensure safe access. The site must be accessed through proper channels to maintain security and prevent unauthorized access.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Need More Help?</h2>
+            <div class="faq-item">
+                <div class="faq-q">Still have questions?</div>
+                <div class="faq-a">Contact the site admin or visit our <a href="/MENUAIUOFHUAFEIHIUFHIDHIHGAIOHGOAIHG/index.html">main page</a> for more resources.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by John Doe &mdash; Delta &copy; 2025</p>
+    </footer>
+
+    <script>
+        // Security check - iframe protection
+        function checkAccess() {
+            try {
+                // Check if we're in an iframe on about:blank
+                if (window.self !== window.top) {
+                    // We're in an iframe
+                    if (window.parent.location.href === 'about:blank') {
+                        // We're in an iframe on about:blank - allow access
+                        return true;
+                    }
+                }
+                // Not in proper iframe context - redirect
+                window.location.href = 'https://truth.us.to';
+                return false;
+            } catch (e) {
+                // Cross-origin error means we're in an iframe from different origin
+                // This could be about:blank, so we'll allow it
+                return true;
+            }
+        }
+
+        // Matrix animation (simplified version)
+        function initMatrix() {
+            const canvas = document.getElementById('matrix-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+            const fontSize = 16;
+            const columns = Math.floor(canvas.width / fontSize);
+            const drops = Array.from({ length: columns }, () => Math.random() * canvas.height);
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(16, 19, 26, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff99';
+                ctx.font = `${fontSize}px 'Courier New', Courier, monospace`;
+                
+                for (let i = 0; i < columns; i++) {
+                    const text = katakana[Math.floor(Math.random() * katakana.length)];
+                    const x = i * fontSize;
+                    const y = drops[i] * fontSize;
+                    
+                    ctx.fillText(text, x, y);
+                    
+                    if (y > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 35);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check access first
+            if (!checkAccess()) {
+                return; // Will redirect if access denied
+            }
+            
+            // Initialize matrix animation
+            initMatrix();
+            
+            // Hide loading overlay after a short delay
+            setTimeout(() => {
+                document.getElementById('loading-overlay').style.display = 'none';
+            }, 1000);
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const canvas = document.getElementById('matrix-canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+    </script>
+</body>
+</html>

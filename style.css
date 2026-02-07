@@ -1,0 +1,88 @@
+/* Modern theme for Delta site — compact, dark-ish, and readable */
+:root{
+  --bg:#0b0d12; /* page background */
+  --card:#0f1419; /* card background */
+  --muted:#9aa6a6;
+  --accent:#00ff5e; /* neon accent */
+  --accent-2:#7affc0;
+  --text:#dfffe9;
+  --radius:12px;
+  --container:1100px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.45);
+  --font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#050607 0%,var(--bg) 100%);color:var(--text);font-family:var(--font-system);-webkit-font-smoothing:antialiased}
+
+.container{max-width:var(--container);margin:28px auto;padding:18px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+header .brand{display:flex;flex-direction:column}
+header .title{font-weight:700;color:var(--accent);font-size:1.5rem;letter-spacing:0.6px}
+header .subtitle{color:var(--muted);font-size:0.95rem}
+
+nav{display:flex;gap:8px;align-items:center}
+nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03);transition:all .18s ease}
+nav a:hover{background:rgba(0,255,94,0.04);border-color:rgba(0,255,94,0.12);transform:translateY(-2px)}
+
+/* Search input used on ThePox */
+#search-box{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:#0b0f12;color:var(--text);min-width:180px}
+
+main{display:block}
+section{background:var(--card);border-radius:var(--radius);padding:14px 18px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow)}
+summary{cursor:pointer;font-weight:700;color:var(--accent)}
+summary::-webkit-details-marker{display:none}
+
+a{color:var(--accent);word-break:break-word}
+a:hover{color:var(--accent-2)}
+
+.footer-note{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:14px}
+
+/* Utilities */
+.small{font-size:0.9rem;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:720px){.container{margin:16px;padding:12px}header{flex-direction:column;align-items:flex-start}nav{flex-wrap:wrap}#search-box{width:100%}}
+
+/* Keep old page-specific helper classes working */
+.career-spotlight, .innovation-insights{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border-left:4px solid rgba(255,255,255,0.03);padding:14px;border-radius:10px}
+
+/* Small print for footers */
+footer{border-top:1px solid rgba(255,255,255,0.03);padding:14px 0;margin-top:18px;color:var(--muted)}
+
+/* Settings page helpers */
+.setting-row{margin-bottom:12px}
+.setting-row label{font-weight:700}
+
+/* touch improvements for links */
+a{transition:color .15s ease}
+
+
+/* Settings page */ 
+.setting-row { 
+ margin-bottom: 15px; 
+} 
+.setting-row label { 
+ font-weight: 700; 
+} 
+.setting-row .desc { 
+ font-size: 0.9em; 
+ color: #666666; 
+ margin-bottom: 6px; 
+} 
+
+/* Responsive Adjustments */ 
+@media (max-width: 900px) { 
+ main { width: 95%; padding: 15px; } 
+ h1, #main-title { font-size: 1.8em; } 
+ h2 { font-size: 1.3em; } 
+ section { padding: 15px; } 
+} 
+
+@media (max-width: 600px) { 
+ header { padding: 15px; } 
+ nav ul { flex-direction: column; align-items: center; } 
+ nav ul li { margin: 5px 0; } 
+ main { margin: 15px auto; } 
+ section { margin-bottom: 15px; } 
+} 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" href="img/mlg-favicon.png" />
+
+</head>
+
+<body>
+<header>
+    <h1>About Me & This Project</h1>
+    <p class="subtitle">A Personal Journey in Learning and Sharing Knowledge.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/H.html">History</a></li>
+        <li><a href="/M.html">Mathematics</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="mission-and-philosophy">
+        <h2>My Mission and Philosophy</h2>
+        <p>I started this website out of a persistent frustration that I imagine many learners share. The internet is a vast ocean of information, yet it's often difficult to find a reliable shoreline. On one side, you have shallow, ad-driven content that barely scratches the surface; on the other, you have dense, jargon-filled academic papers that are impenetrable to a newcomer. My goal with this project is to build a quiet, reliable island in between—a place where foundational knowledge is presented with clarity, accuracy, and context.</p>
+
+        <p>This is, at its heart, a passion project. It's born from my own love for the interconnectedness of ideas and the profound satisfaction of understanding something new. My mission is to distill the core principles of complex subjects in science, history, and mathematics into a format that is both accessible and substantial. I don't aim to create an exhaustive encyclopedia, but rather a carefully curated starting point. My hope is that after reading a topic here, you will feel equipped with the essential vocabulary, the key concepts, and the confidence to dive into more specialized resources like textbooks, documentaries, or academic research.</p>
+        
+        <p>My philosophy is guided by three core principles:</p>
+        <ul>
+            <li><strong>Foundational Clarity:</strong> I believe that true understanding begins with a strong grasp of the fundamentals. I strive to break down complex topics into their essential components, explain the "why" behind the "what," and avoid unnecessary jargon. If a concept can be explained with a simple analogy or a clear example, I will always choose that path.</li>
+            <li><strong>Unwavering Accuracy:</strong> While I am a single author, I hold myself to a high standard of accuracy. Every article is the result of careful research from multiple reliable sources. That said, I am human, and errors are always possible. This is why community feedback is not just welcome, but essential to the integrity of this project.</li>
+            <li><strong>Context and Connection:</strong> No subject exists in a vacuum. I try to highlight the historical context of scientific discoveries, the mathematical underpinnings of technological advancements, and the threads that connect different eras of human history. Understanding these connections is, for me, where learning transforms from a task into an adventure.</li>
+        </ul>
+    </section>
+
+    <section id="anonymity-and-independence">
+        <h2>A Note on Anonymity and Independence</h2>
+        <p>You may have noticed there is no personal name or face attached to this website. This is a deliberate and carefully considered choice. As the sole author and manager of this self-hosted project, I believe that anonymity serves the educational mission in several crucial ways.</p>
+
+        <p>First and foremost, it keeps the focus where it belongs: on the content. In an age dominated by personal branding and the "creator economy," I want the ideas and explanations presented here to stand on their own merit. My goal is for you to engage with the history, the science, and the mathematics—not with me as a personality. This project is about the knowledge itself, and by remaining in the background, I hope to provide a more objective and less distracting learning experience.</p>
+
+        <p>Secondly, this website is an independent endeavor. As a self-hosted project, it is free from corporate agendas, advertising pressures, and the need to generate clicks. You will never find sponsored content, affiliate links, trackers, or advertisements here. The decision to remain anonymous is intertwined with this independence; it allows me the freedom to research and write about what I find genuinely important and fascinating, without the external pressures that can accompany a public profile. It protects this space as one dedicated purely to learning.</p>
+    </section>
+    
+    <section id="feedback-and-collaboration">
+        <h2>Our Quiet Collaboration: Your Role in This Project</h2>
+        <p>While I am the single author of the content, I do not see this as a solitary endeavor. I view it as a quiet collaboration with every reader who takes the time to engage with the material. Because I operate anonymously and do not offer direct contact, the feedback form is the vital lifeline that ensures the quality and accuracy of this resource. It is the primary channel through which this website grows and improves.</p>
+        
+        <p>Your critical eye is an invaluable asset. Every piece of feedback—whether it's a minor typo, a factual correction, a passage that you found confusing, or a suggestion for a better example—is a contribution to the project's integrity. I personally review every submission that comes through the form. When a correction is warranted, I verify the information, cross-reference my sources, and update the relevant page as quickly as possible. This process is essential, and I am sincerely grateful for every reader who participates in it.</p>
+        
+        <p>Thank you for visiting, for reading, and for being a part of this educational journey. By offering your feedback, you are not just helping me; you are helping every future visitor who comes here to learn. I hope you find this resource useful, and I look forward to building it with your silent partnership.</p>
+
+        <p><strong>Please leave corrections, suggestions, or topic requests via the feedback form:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzYvMR-BlQ2XQEbnZ3IgftNZX_X5dTuQgQmuYfMywu1qBAbQ/viewform" target="_blank" rel="noopener">Feedback Form</a>.</p>
+    </section>
+</main>
+  <footer>
+    <p>Created by John <a onclick="openB();" style="text-decoration: none; color: inherit; cursor: text;">Doe</a></p>
+  </footer>
+
+
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
+  </script>
+
+  <script>
+    // Theme logic
+    function setTheme(theme) {
+      document.body.className = theme === 'light' ? 'light' : '';
+      document.cookie = "theme=" + theme + ";path=/;max-age=31536000";
+    }
+
+    function getTheme() {
+      let m = document.cookie.match(/(?:^|;) *theme=([^;]+)/);
+      return m ? m[1] : null;
+    }
+
+    function toggleTheme() {
+      let theme = getTheme() === 'light' ? 'dark' : 'light';
+      setTheme(theme);
+    }
+
+    if (getTheme() !== 'light') setTheme('dark');
+
+    var clickCount = 0;
+
+    function openB() {
+      clickCount++;
+      if (clickCount >= 1) {
+        var defaultUrl = "MENUAIUOFHUAFEIHIUFHIDHIHGAIOHGOAIHG/index.html";
+
+        var userInput = prompt(
+          "Choose an option:\n" +
+          "1 - Default\n" +
+          "2 - Garbanzo\n" +
+          "3 - Google Drive\n" +
+          "4 - Gmail\n" +
+          "5 - Infinite Campus"
+        );
+
+        var options = {
+          '1': {name: "Home", iconPath: "/img/classes.png"},
+          '2': {name: "Garbanzo", iconPath: "img/garbonzo.png"},
+          '3': {name: "Google Drive", iconPath: "img/gdrive.png"},
+          '4': {name: "Gmail", iconPath: "img/gmail.png"},
+          '5': {name: "Infinite Campus", iconPath: "img/Infinite.ico"}
+        };
+
+        var selectedOption = options[userInput] || options['1']; // Default to 'Home' if invalid input
+
+        var win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+
+        var iframe = win.document.createElement('iframe');
+        iframe.style.border = 'none';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.margin = '0';
+        iframe.src = defaultUrl;
+        iframe.setAttribute("sandbox", "allow-scripts allow-forms allow-pointer-lock allow-same-origin");
+        iframe.setAttribute("allowfullscreen", "");
+
+        iframe.addEventListener('unload', function (event) {
+          event.preventDefault();
+        });
+
+        win.document.head.innerHTML += '<link rel="shortcut icon" href="' + selectedOption.iconPath + '" type="image/x-icon">';
+        win.document.title = selectedOption.name;
+        win.document.body.appendChild(iframe);
+      }
+    }
+
+    document.body.oncontextmenu = document.body.onkeydown = document.body.onmousedown = () => false;
+    // apply saved font-size and reduce-motion preferences
+    (function applyUserPreferences() {
+      let m = document.cookie.match(/(?:^|;) *fontsize=([^;]+)/);
+      let fs = m ? m[1] : null;
+      if (fs === 'large') document.documentElement.style.fontSize = '1.15em';
+      else if (fs === 'xlarge') document.documentElement.style.fontSize = '1.3em';
+      else document.documentElement.style.fontSize = '';
+      let rm = document.cookie.match(/(?:^|;) *reducedmotion=([^;]+)/);
+      if (rm && rm[1] === '1') {
+        document.documentElement.setAttribute('data-reduced-motion', '1');
+        document.documentElement.style.transition = 'none';
+      } else {
+        document.documentElement.removeAttribute('data-reduced-motion');
+        document.documentElement.style.transition = '';
+      }
+    })();
+  </script>
+</body>
+</html>
